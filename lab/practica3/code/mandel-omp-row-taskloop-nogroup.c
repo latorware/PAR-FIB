@@ -99,8 +99,8 @@ void mandelbrot(int height, int width, double real_min, double imag_min,
     // Calculate points and generate appropriate output
     #pragma omp parallel
     #pragma omp single
-    for (int row = 0; row < height; ++row) {
-		        #pragma omp taskloop nogroup firstprivate(row)
+    #pragma omp taskloop nogroup
+    for (int row = 0; row < height; ++row) {		
         for (int col = 0; col < width; ++col) {          
             complex z, c;
 
